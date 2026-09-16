@@ -1,20 +1,17 @@
-﻿namespace MauiAppTempoAgora
+﻿using Microsoft.Extensions.DependencyInjection;
+
+namespace MauiAppTempoAgora
 {
     public partial class App : Application
     {
         public App()
         {
             InitializeComponent();
-
-            MainPage = new AppShell();
         }
 
-         protected override Window CreateWindow(IActivationState? activationState)
+        protected override Window CreateWindow(IActivationState? activationState)
         {
-            var window = base.CreateWindow(activationState);
-            window.Width = 520;
-            window.Height = 900;
-            return window;
+            return new Window(new AppShell());
         }
     }
 }
